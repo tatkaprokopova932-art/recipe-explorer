@@ -31,6 +31,7 @@ export default async function RecipesPage() {
             key={recipe.idMeal}
             name={recipe.strMeal}
             image={recipe.strMealThumb}
+            id={recipe.idMeal}
           />
         ))}
       </div>
