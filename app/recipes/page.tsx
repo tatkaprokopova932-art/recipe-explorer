@@ -25,7 +25,7 @@ export default async function RecipesPage() {
       <h1>Explore Recipes</h1>
       <p>Discover delicious chicken recipes!</p>
 
-      <div>
+      <div className="recipes-grid">
         {recipes.map((recipe) => (
           <RecipeCard
             key={recipe.idMeal}
