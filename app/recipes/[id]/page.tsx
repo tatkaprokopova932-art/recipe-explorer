@@ -41,7 +41,7 @@ export default async function RecipeDetailsPage({ params }: RecipePageProps) {
   }
 
   return (
-    <main>
+    <>
       <h1>{recipe.strMeal}</h1>
       <Image
         src={recipe.strMealThumb}
@@ -57,6 +57,6 @@ export default async function RecipeDetailsPage({ params }: RecipePageProps) {
           <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>
-    </main>
+    </>
   );
 }

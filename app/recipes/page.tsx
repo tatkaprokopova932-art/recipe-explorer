@@ -12,7 +12,7 @@ export default async function RecipesPage({
   searchParams: Promise<{ search?: string }>;
 }) {
   const params = await searchParams;
-  const search = params.search?.trim() || "chicken";
+const search = params.search?.trim() || "chicken";
 
   const response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(search)}`,
@@ -20,9 +20,9 @@ export default async function RecipesPage({
 
   if (!response.ok) {
     return (
-      <main>
+      <>
         <h1>Could not load recipes.</h1>
-      </main>
+      </>
     );
   }
 
@@ -31,7 +31,7 @@ export default async function RecipesPage({
   const recipes = data.meals ?? [];
 
   return (
-    <main>
+    <>
       <h1>Explore Recipes</h1>
 
       <form action="/recipes" method="GET">
@@ -56,6 +56,6 @@ export default async function RecipesPage({
           />
         ))}
       </div>
-    </main>
+    </>
   );
 }
