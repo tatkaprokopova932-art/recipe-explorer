@@ -12,7 +12,7 @@ export default async function RecipesPage({
   searchParams: Promise<{ search?: string }>;
 }) {
   const params = await searchParams;
-const search = params.search?.trim() || "chicken";
+  const search = params.search?.trim() || "chicken";
 
   const response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(search)}`,
@@ -35,12 +35,17 @@ const search = params.search?.trim() || "chicken";
       <h1>Explore Recipes</h1>
 
       <form action="/recipes" method="GET">
-        <input
-          name="search"
-          placeholder="Search recipes..."
-          defaultValue={search}
-        />
-        <button type="submit">Search</button>
+        <label htmlFor="recipe-search">Search by recipe name</label>
+
+        <div className="search-controls">
+          <input
+            id="recipe-search"
+            name="search"
+            placeholder="Search recipes..."
+            defaultValue={search}
+          />
+          <button type="submit">Search</button>
+        </div>
       </form>
 
       <p>Explore recipes for: {search}</p>
