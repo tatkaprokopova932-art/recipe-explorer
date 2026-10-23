@@ -147,3 +147,141 @@ main h1 {
 main p {
   margin-bottom: 16px;
 }
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-section form {
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-controls input {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-section {
+  margin-bottom: 32px;
+}
+
+.recipes-grid article:hover {
+  transform: translateY(-5px);
+}
+
+@media (hover: none) {
+  .recipes-grid article:active {
+    transform: scale(0.97);
+  }
+}
+
+.instructions-title {
+  margin-bottom: 16px;
+}
+
+.recipe-detail-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.ingredients-title {
+  margin-bottom: 16px;
+}
+
+.ingredients-list {
+  padding-left: 12px;
+}
+
+.recipe-top {
+  display: grid;
+  grid-template-columns: 320px 320px;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .recipe-top {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+.ingredients-block {
+  background-color: #1d1d22;
+  border: 1px solid #35353b;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #ff9f43;
+  color: #171717;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  min-height: 65vh;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .about-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 20px;
+  background-color: #ff9f43;
+  color: #111;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-button:hover {
+  background-color: #ffb366;
+}
+
+.back-button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}

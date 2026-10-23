@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function AboutPage() {
   return (
     <>
@@ -18,6 +19,35 @@ export default function AboutPage() {
         Recipe Explorer uses TheMealDB API to display recipes, ingredients, and
         cooking instructions.
       </p>
+
+      <div className="about-gallery">
+      <Image
+        src="/images/about-salmon.jpg"
+        alt="Salmon served with vegetables"
+        width={500}
+        height={350}
+      />
+      <Image
+        src="/images/about-food.jpg"
+        alt="A selection of delicious dishes"
+        width={500}
+        height={350}
+      />
+
+      <Image
+        src="/images/about-chicken.jpg"
+        alt="Chicken served with vegetables"
+        width={500}
+        height={350}
+      />
+
+      <Image
+        src="/images/pasta.jpg"
+        alt="A plate of spaghetti with fresh herbs"
+        width={500}
+        height={350}
+      />
+      </div>
     </>
   );
 }

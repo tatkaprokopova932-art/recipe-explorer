@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 type Recipe = {
   idMeal: string;
@@ -11,13 +12,15 @@ type Recipe = {
 
 type RecipePageProps = {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ search?: string }>;
 };
 type RecipeResponse = {
   meals: Recipe[] | null;
 };
 
-export default async function RecipeDetailsPage({ params }: RecipePageProps) {
+export default async function RecipeDetailsPage({ params, searchParams }: RecipePageProps) {
   const { id } = await params;
+  const { search } = await searchParams;
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
   const response = await fetch(url);
 
@@ -43,20 +46,33 @@ export default async function RecipeDetailsPage({ params }: RecipePageProps) {
   return (
     <>
       <h1>{recipe.strMeal}</h1>
+      <div className="recipe-top">
       <Image
+      className="recipe-detail-image"
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
         width={400}
         height={400}
       />
-      <h2>Instructions</h2>
-      <p>{recipe.strInstructions}</p>
-      <h2>Ingredients</h2>
-      <ul>
+
+      <div className="ingredients-block">
+      <h2 className="ingredients-title">Ingredients</h2>
+      <ul className="ingredients-list">
         {ingredients.map((ingredient) => (
           <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>
+      </div>
+      </div>
+            <h2 className="instructions-title">Instructions</h2>
+      <p>{recipe.strInstructions}</p>
+
+      <Link
+  href={`/recipes?search=${encodeURIComponent(search ?? "chicken")}`}
+  className="back-button"
+>
+  ← Back to results
+</Link>
     </>
   );
 }

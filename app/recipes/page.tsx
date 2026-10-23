@@ -32,6 +32,7 @@ export default async function RecipesPage({
 
   return (
     <>
+    <div className="search-section">
       <h1>Explore Recipes</h1>
 
       <form action="/recipes" method="GET">
@@ -47,6 +48,7 @@ export default async function RecipesPage({
           <button type="submit">Search</button>
         </div>
       </form>
+      </div>
 
       <p>Explore recipes for: {search}</p>
       {recipes.length === 0 && <p>No recipes found.</p>}
@@ -58,6 +60,7 @@ export default async function RecipesPage({
             name={recipe.strMeal}
             image={recipe.strMealThumb}
             id={recipe.idMeal}
+            search={search}
           />
         ))}
       </div>
