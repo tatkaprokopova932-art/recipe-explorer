@@ -48,7 +48,7 @@ export default async function RecipeDetailsPage({ params, searchParams }: Recipe
       <h1>{recipe.strMeal}</h1>
       <div className="recipe-top">
       <Image
-      className="recipe-detail-image"
+        className="recipe-detail-image"
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
         width={400}
@@ -58,9 +58,9 @@ export default async function RecipeDetailsPage({ params, searchParams }: Recipe
       <div className="ingredients-block">
       <h2 className="ingredients-title">Ingredients</h2>
       <ul className="ingredients-list">
-        {ingredients.map((ingredient) => (
-          <li key={ingredient}>{ingredient}</li>
-        ))}
+        {ingredients.map((ingredient, index) => (
+  <li key={index}>{ingredient}</li>
+))}
       </ul>
       </div>
       </div>

@@ -54,13 +54,14 @@ export default async function RecipesPage({
       {recipes.length === 0 && <p>No recipes found.</p>}
 
       <div className="recipes-grid">
-        {recipes.map((recipe) => (
+        {recipes.map((recipe, index) => (
           <RecipeCard
             key={recipe.idMeal}
             name={recipe.strMeal}
             image={recipe.strMealThumb}
             id={recipe.idMeal}
             search={search}
+            priority={index === 0}
           />
         ))}
       </div>
