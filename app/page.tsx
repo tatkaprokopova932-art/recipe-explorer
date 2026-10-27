@@ -21,6 +21,7 @@ export default function Home() {
         alt="Delicious burger"
         width={800}
         height={530}
+        loading="eager"
       />
     </section>
   );

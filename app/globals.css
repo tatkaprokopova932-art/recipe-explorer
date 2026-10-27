@@ -50,7 +50,7 @@ a {
 
 .recipes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 24px;
 }
 
@@ -93,8 +93,15 @@ form button {
   background-color: #ff9f43;
   color: #171717;
   border: none;
-  padding: 8px 16px;
-  border-radius: 0px 8 8 0px;
+  padding: 10px 24px;
+  border-radius: 0 8px 8px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #ffb366;
+  transform: translateY(-2px);
 }
 
 form input {
@@ -234,6 +241,16 @@ main p {
   gap: 40px;
   align-items: center;
   min-height: 65vh;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-button:hover {
+  background-color: #ffb366;
+  transform: translateY(-3px);
+}
+
+.hero-button:active {
+  transform: scale(0.97);
 }
 
 @media (max-width: 768px) {
@@ -243,8 +260,14 @@ main p {
 }
 
 .hero img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+max-width: 750px;
+height: auto;
+  mask-image:
+  linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+  linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+
+mask-composite: intersect;
 }
 
 .about-gallery {
@@ -284,4 +307,22 @@ main p {
 .back-button:focus-visible {
   outline: 3px solid white;
   outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    height: auto;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-button {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+  }
+
 }
